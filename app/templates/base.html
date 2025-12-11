@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+	<head>
+		{% if title %}
+		<title>{{ title }} - The Company of Records</title>
+      	{% else %}
+     	<title>Welcome to The Company of Records</title>
+      	{% endif %}
+    </head>
+    <body>
+        <div>Company of Records: <a href="/index">Home</a></div>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>
