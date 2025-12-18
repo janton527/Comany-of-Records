@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>New Member</h1>
+	<form action="" method="post">
+		{{ form.hidden_tag() }}
+		<p>
+			{{ form.name.label }}<br>
+			{{ form.name(size=32) }}<br>
+			{% for error in form.name.errors %}
+			<span style="color: red;">[{{ error }}]</span>
+			{% endfor %}
+		</p>
+		<p>
+			{{ form.profession.label }}<br>
+			{{ form.profession(size=32) }}<br>
+			{% for error in form.profession.errors %}
+			<span style="color: red;">[{{ error }}]</span>
+			{% endfor %}
+		</p>
+		<p>
+			{{ form.level.label }}<br>
+			{{ form.level(size=32) }}<br>
+			{% for error in form.level.errors %}
+			<span style="color: red;">[{{ error }}]</span>
+			{% endfor %}
+		</p>
+		<p>
+			{{ form.party.label }}<br>
+			{{ form.party(size=32) }}<br>
+			{% for error in form.party.errors %}
+			<span style="color: red;">[{{ error }}]</span>
+			{% endfor %}
+		</p>
+		<p>
+			{{ form.alignment.label }}<br>
+			{{ form.alignment(size=32) }}<br>
+			{% for error in form.alignment.errors %}
+			<span style="color: red;">[{{ error }}]</span>
+			{% endfor %}
+		</p>
+		<p>
+			{{ form.status.label }}<br>
+			{{ form.status(size=32) }}<br>
+			{% for error in form.status.errors %}
+			<span style="color: red;">[{{ error }}]</span>
+			{% endfor %}
+		</p>
+		<p>{{ form.submit() }}</p>
+	</form>
+{% endblock %}

@@ -40,3 +40,13 @@ class Post(db.Model):
 
     def __repr__(self):
         return '<Post {}>'.format(self.body)
+
+class Member(db.Model): 
+    id: so.Mapped[int] = so.mapped_column(primary_key=True) 
+    name: so.Mapped[str] = so.mapped_column(sa.String(32), unique=True) 
+    profession: so.Mapped[str] = so.mapped_column(sa.String(32)) 
+    level: so.Mapped[int] = so.mapped_column(sa.Integer) 
+    party: so.Mapped[Optional[str]] = so.mapped_column(sa.String(32)) 
+    alignment: so.Mapped[str] = so.mapped_column(sa.String(2)) 
+    status: so.Mapped[str] = so.mapped_column(sa.String(15)) 
+
