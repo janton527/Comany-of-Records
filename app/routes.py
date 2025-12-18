@@ -4,7 +4,7 @@ from urllib.parse import urlsplit
 import sqlalchemy as sa
 from app import app, db
 from app.forms import LoginForm, RegistrationForm
-from app.models import User
+from app.models import User, Member
 
 @app.route('/')
 @app.route('/index')
@@ -58,3 +58,15 @@ def register():
         flash('Congratulations, yoou are now a registered user!')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
+
+@app.route('/members', methods=['GET', 'POST'])
+@login_required
+def members():
+    query = sa.select(Member)
+    members = db.session.scalars(query).all()
+    return render_template('members.html', title='Members', members=members)
+
+@app.route('/members/new_member')
+@login_required
+def new_member():
+    return "Test"
